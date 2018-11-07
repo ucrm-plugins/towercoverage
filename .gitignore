@@ -1,0 +1,10 @@
+src/data/config.json
+src/data/plugin.log
+src/ucrm.json
+
+**/.cache/
+
+src/vendor/
+
+.idea/
+.env
