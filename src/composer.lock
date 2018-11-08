@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cdd247f1099d1709716b6f6a58b97e9c",
+    "content-hash": "c2352756d3aa79f05e7f72d7f069263d",
     "packages": [
         {
             "name": "defuse/php-encryption",
@@ -393,16 +393,16 @@
         },
         {
             "name": "mvqn/annotations",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mvqn/annotations.git",
-                "reference": "9ef918da857654fa43d089bc547ee8e1adf776d0"
+                "reference": "afd112b5c2887bc8e3acb8703832c0afff5bc335"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mvqn/annotations/zipball/9ef918da857654fa43d089bc547ee8e1adf776d0",
-                "reference": "9ef918da857654fa43d089bc547ee8e1adf776d0",
+                "url": "https://api.github.com/repos/mvqn/annotations/zipball/afd112b5c2887bc8e3acb8703832c0afff5bc335",
+                "reference": "afd112b5c2887bc8e3acb8703832c0afff5bc335",
                 "shasum": ""
             },
             "require": {
@@ -431,7 +431,7 @@
                 }
             ],
             "description": "A semi-complex PHP-Doc Annotation parsing library, specifically designed for use in MVQN projects, but generic enough for anything!",
-            "time": "2018-10-30T00:33:31+00:00"
+            "time": "2018-11-07T11:04:54+00:00"
         },
         {
             "name": "mvqn/collections",
@@ -562,16 +562,16 @@
         },
         {
             "name": "mvqn/dynamics",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mvqn/dynamics.git",
-                "reference": "d02fd208eee68f59b130c6faad0538f4c2f37f4f"
+                "reference": "b0b4856e664bc05d039eefbb496aba1589fc4985"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mvqn/dynamics/zipball/d02fd208eee68f59b130c6faad0538f4c2f37f4f",
-                "reference": "d02fd208eee68f59b130c6faad0538f4c2f37f4f",
+                "url": "https://api.github.com/repos/mvqn/dynamics/zipball/b0b4856e664bc05d039eefbb496aba1589fc4985",
+                "reference": "b0b4856e664bc05d039eefbb496aba1589fc4985",
                 "shasum": ""
             },
             "require": {
@@ -601,7 +601,7 @@
                 }
             ],
             "description": "A library for dynamic objects and methods.",
-            "time": "2018-10-30T06:59:04+00:00"
+            "time": "2018-11-07T20:23:55+00:00"
         },
         {
             "name": "mvqn/localization",
@@ -647,16 +647,16 @@
         },
         {
             "name": "mvqn/rest",
-            "version": "1.2.1",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mvqn/rest.git",
-                "reference": "b3034dde56f63e686cffc5f363ed9e0ed0500b6b"
+                "reference": "71b782cafc7942500a709fbc77e9dc8ed41dce89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mvqn/rest/zipball/b3034dde56f63e686cffc5f363ed9e0ed0500b6b",
-                "reference": "b3034dde56f63e686cffc5f363ed9e0ed0500b6b",
+                "url": "https://api.github.com/repos/mvqn/rest/zipball/71b782cafc7942500a709fbc77e9dc8ed41dce89",
+                "reference": "71b782cafc7942500a709fbc77e9dc8ed41dce89",
                 "shasum": ""
             },
             "require": {
@@ -688,7 +688,7 @@
                 }
             ],
             "description": "A simple REST Client library for interfacing with generic REST Endpoints.",
-            "time": "2018-11-02T07:23:29+00:00"
+            "time": "2018-11-07T21:44:51+00:00"
         },
         {
             "name": "nette/php-generator",
@@ -2448,9 +2448,8 @@
         "php": "~7.1",
         "ext-json": "*",
         "ext-zip": "*",
-        "ext-pdo": "*",
-        "ext-dom": "*",
-        "ext-libxml": "*"
+        "ext-libxml": "*",
+        "ext-simplexml": "*"
     },
     "platform-dev": []
 }

@@ -1,140 +1,105 @@
-# UCRM Notification Plugin
+# UCRM TowerCoverage Plugin
 
-This is a simple plugin that allows end-users to configure more notifications than the UCRM system currently allows.
-
-All entities and event types currently supported by UCRM Webhooks can now be used to trigger a notification to a 
-designated list of recipients.
-
-This plugin is designed specifically for notifications to the company and employees using the UCRM system and is not 
-necessarily designed for notifications to the managed Clients.  I believe the UCRM system should handle those 
-interactions directly.
+This is a simple plugin that allows end-users to configure a their UCRM to receive and handle data from the their
+associated TowerCoverage.com accounts.
 
 ## Installation
 
-1. Download the [Plugin](https://github.com/mvqn/ucrm-plugins/raw/master/plugins/notifications/notifications.zip) and 
-add it to the System/Plugins in your UCRM.
-2. Configure the plugin as noted below and then "Save and Enable".
-3. Add a Webhook pointing to your newly added public URL or use the "Add webhook" button on the plugin page in newer 
-versions of UCRM.
-4. In the Webhook, either leave "Any event" set to "Yes" for all event types, or set it to "No" and then multi-select 
-only the events for which you want notifications sent.  See currently "Supported Events" below.
-5. Your all set!
+#### TowerCoverage
 
-##### NOTES
-- Notification links will be build using settings in the following order:
-    - Settings: Server Domain Name
-    - Settings: Server IP
-    - "http://localhost"
-- A static Google Maps image will be embedded in HTML notifications only when a Google Maps API Key (with Google 
-Maps Static API enabled) is set in the UCRM.
-- If SSL is not enabled on your UCRM system, make sure to set "Verify SSL Certificate" to "No" in the Webhook 
-Settings.  My recommendation is to leave the setting to "No" always, as the plugin is designed communicating with the
- server using 'localhost' and should not pose a security risk. 
+1. Login to your Dashboard and Go to Account/API.
+2. Under the EUS Billing API Section, fill in the following fields:
+
+   | OPTION        | VALUE                                                 
+   |---------------|-----------------------------------------------------------
+   | EUS API       | `Other`
+   | API Key       | `YOUR_DESIRED_KEY`
+   | Push URL      | `http://YOUR_UCRM_HOST/_plugins/towercoverage/public.php`
+   | Username      | `YOUR_DESIRED_USERNAME>`
+   | Password      | `YOUR_DESIRED_PASSWORD>`
+
+3. Click the Update button and you should be all set on this end!
+
+_NOTE: You will also need to have your EUS Form living somewhere for users to visit!_ 
+
+
+#### UCRM
+
+1. Download the [Plugin](https://github.com/ucrm-plugins/towercoverage/raw/master/towercoverage.zip) and add it to the
+System/Plugins in your UCRM.
+2. Configure the plugin as noted below and then "Save and Enable".
+3. Your all set, no web-hooks required with this one!
+
 
 ## Configuration
 
-**Use HTML?**
+**Verbose Debugging?**
 
-If enabled, will attempt to send messages in HTML format, but will fall-back to TEXT when not supported.
+Currently does nothing!
 
-Recommended: `Yes`
+Recommended: `No`
 
-**Client Types**
+**API Key**
 
-Determines the type of Client events to handle, as the webhook system currently does not allow you us to receive 
-events specific to Clients or Leads.
+The API Key from your TowerCoverage.com EUS Billing API Settings noted above.
+
+_If blank, allows receiving submissions from any TowerCoverage End-User Submission Form, regardless of the settings in
+your TowerCoverage.com Account._
+
+Recommended: `YOUR_DESIRED_KEY`
+
+**API Username**
+
+The API Username from your TowerCoverage.com EUS Billing API Settings noted above.
+
+_If blank, allows receiving submissions from any TowerCoverage End-User Submission Form, regardless of the settings in
+your TowerCoverage.com Account._
+
+Recommended: `YOUR_DESIRED_USERNAME`
+
+**API Password**
+
+The API Password from your TowerCoverage.com EUS Billing API Settings noted above.
+
+_If blank, allows receiving submissions from any TowerCoverage End-User Submission Form, regardless of the settings in
+your TowerCoverage.com Account._
+
+Recommended: `YOUR_DESIRED_PASSWORD`
+
+**Duplicate Mode**
+
+The method for determining duplicate submissions.
 
 The options are as follows:
 
-- "Clients & Leads": Client events set in the webhook will be received "as is" and notifications for both 
-Clients and Leads will be sent.
+- "First & Last Names": When a submission comes in that matches the same First & Last Names of an existing Client Lead,
+the submission will simply update the current Client Lead.
 
-- "Clients Only": Client events set in the webhook will be received, checked to exclude Leads and 
-notifications for only Clients will be sent.
+- "Primary Email": When a submission comes in that matches the same Primary Email of an existing Client Lead, the
+submission will simply update the current Client Lead.
 
-- "Leads Only": Client events set in the webhook will be received, checked to exclude Clients and 
-notifications for only Leads will be sent.
+- "Street Address": When a submission comes in that matches the same Street Address of an existing Client Lead, the
+submission will simply update the current Client Lead.
 
-Recommended: `Leads Only`
-
-**Client Recipients**
-
-A comma separated list of email addresses to which Client notifications should be sent.
-
-Example: `rspaeth@mvqn.net`
-
-**Invoice Recipients**
-
-A comma separated list of email addresses to which Invoice notifications should be sent.
-
-Example: `rspaeth@mvqn.net`
-
-**Payment Recipients**
-
-A comma separated list of email addresses to which Payment notifications should be sent.
-
-Example: `rspaeth@mvqn.net`
-
-**Quote Recipients**
-
-A comma separated list of email addresses to which Quote notifications should be sent.
-
-Example: `rspaeth@mvqn.net`
-
-**Service Recipients**
-
-A comma separated list of email addresses to which Service notifications should be sent.
-
-Example: `rspaeth@mvqn.net`
-
-**Ticket Recipients**
-
-A comma separated list of email addresses to which Ticket notifications should be sent.
-
-Supported Variables:
-- `%TICKET_ASSIGNED_USER%`\
-Will also send an email to the Ticket's Assigned User, if one exists!
-
-Example: `rspaeth@mvqn.net`
-
-**User Recipients**
-
-A comma separated list of email addresses to which User notifications should be sent.
-
-Example: `rspaeth@mvqn.net`
-
-**Webhook Recipients**
-
-A comma separated list of email addresses to which Webhook notifications should be sent.
-
-Example: `rspaeth@mvqn.net`
+Recommended: `First & Last Names`
 
 ## Features
 
-#### Supported Events
-Automatically compose and send an email notification upon the occurrence of any of the following events:
-- Client (add, archive, ~~delete~~, edit, invite) [html/text]
-- Ticket (add, comment, ~~delete~~, edit, status_change) [html/text]
+- Receives data pushed from the TowerCoverage.com End-User Submission (EUS) API and then either creates or updates a
+Client Lead with the provided data.
+
+- Optionally, the Plugin can be provided with an API Key, Username and Password to only allow EUS data from a single
+TowerCoverage Account.  When not provided, the Plugin can receive and handle data for multiple TowerCoverage Accounts.
+
+- Multiple "Duplicate Mode" options to allow automatic editing of existing Client Leads, based on "First & Last Names",
+"Primary Email" or "Street Address".
+
+- Works seamlessly with the Notifications Plugin, to notify Admins when a "Client Lead Added" or any subsequent "Client
+Lead Edited" events.
 
 #### Localization
-All templates currently support ALL of the supported locales of UCRM. Currently, all of the translations have been 
-done by the Google Translations API, but I am hoping to get some reviews by fluent speakers on some of them soon.
+COMING SOON
 
-Please let me know if you are interested in assisting with translations. 
-
-#### Customization
-Allow for the customization of both HTML and TEXT templates to suit individual needs.
-
-*NOTE: Currently requires manual editing of the Twig templates in the `twig/` folder.*
-
-#### Upcoming
-Add support for the remaining entities and event types:
-- **Invoice** (add, add_draft, delete, edit, near_due, overdue)
-- **Payment** (add, delete, edit, unmatch)
-- **Quote** (add, delete, edit)
-- **Service** (add, archive, edit, end, postpone, suspend, suspend_cancel)
-- **User** (reset_password)
-- **Webhook** (test)
 
 ## About
 
@@ -145,20 +110,11 @@ in the accompanying `vendor/` folder and can be updated and maintained manually 
 [composer](https://getcomposer.org/) if desired.
 
 ### Related Packages
-[mvqn-ucrm/plugins](https://github.com/mvqn-ucrm/plugins)\
-A plugin module that includes numerous helper class/methods for developing UCRM Plugins.
-
-[mvqn-ucrm/rest](https://github.com/mvqn-ucrm/rest)\
-A plugin module used to simplify access to the UCRM REST API.
-
-[mvqn-ucrm/data](https://github.com/mvqn-ucrm/data)\
-A plugin module used to simplify access to the UCRM Database.
-
-[mvqn/localization](https://github.com/mvqn/localization)\
+[ucrm-plugins/notifications](https://github.com/ucrm-plugins/notifications)\
 A plugin module for localization.
 
 ### Submitting bugs and feature requests
-Bugs and feature request are tracked on [Github](https://github.com/mvqn/ucrm-plugins/issues)
+Bugs and feature request are tracked on [Github](https://github.com/ucrm-plugins/towercoverage/issues)
 
 ### Author
 Ryan Spaeth <[rspaeth@mvqn.net](mailto:rspaeth@mvqn.net)>

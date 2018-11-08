@@ -18,8 +18,8 @@ use MVQN\XML\XmlElementClass;
  * @method string getFirstName()
  * @method string getLastName()
  * @method string getStreetAddress()
- * @method string getCustomerLat()
- * @method string getCustomerLong()
+ * @method float  getCustomerLat()
+ * @method float  getCustomerLong()
  * @method string getCity()
  * @method string getState()
  * @method string getCountry()
@@ -29,8 +29,8 @@ use MVQN\XML\XmlElementClass;
  * @method string getHearAbout()
  * @method string getContactMethod()
  * @method string getContactTime()
- * @method string getComments()
- * @method string getFiberIncludes()
+ * @method array|null getComments()
+ * @method string|null getFiberIncludes()
  * @method CustomerLinkInfo getCustomerLinkInfo()
  *
  */
@@ -73,13 +73,13 @@ final class CustomerDetails extends XmlElementClass
     protected $streetAddress;
 
     /**
-     * @var string
+     * @var float
      * @XmlElement CustomerLat
      */
     protected $customerLat;
 
     /**
-     * @var string
+     * @var float
      * @XmlElement CustomerLong
      */
     protected $customerLong;
@@ -139,13 +139,13 @@ final class CustomerDetails extends XmlElementClass
     protected $contactTime;
 
     /**
-     * @var array
+     * @var array|null
      * @XmlElement Comment
      */
     protected $comments;
 
     /**
-     * @var array
+     * @var array|null
      * @XmlElement fiberincludes
      */
     protected $fiberIncludes;

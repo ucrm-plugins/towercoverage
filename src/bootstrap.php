@@ -20,13 +20,13 @@ use UCRM\Plugins\Settings;
 
 // IF there is a /.env file, THEN load it!
 if(file_exists(__DIR__."/../.env"))
-    (new \Dotenv\Dotenv(__DIR__))->load();
+    (new \Dotenv\Dotenv(__DIR__."/../"))->load();
 
 // Initialize the Plugin libraries using this directory as the plugin root!
 Plugin::initialize(__DIR__);
 
 // Regenerate the Settings class, in case anything has changed in the manifest.json file.
-Plugin::createSettings();
+Plugin::createSettings("UCRM\\Plugins");
 
 // Generate the REST API URL.
 $restUrl = (getenv("UCRM_REST_URL_DEV") ?: "http://localhost")."/api/v1.0";
@@ -38,13 +38,14 @@ RestClient::setHeaders([
     "X-Auth-App-Key: " . Settings::PLUGIN_APP_KEY
 ]);
 
+
 // Configure the language...
 //$translations = include_once __DIR__."/translations/" . (Config::getLanguage() ?: "en_US") . ".php";
 
 // Set the dictionary directory and "default" locale.
 try
 {
-    Translator::setDictionaryDirectory(__DIR__ . "/translations/");
+    Translator::setDictionaryDirectory(__DIR__."/translations/");
     Translator::setCurrentLocale(str_replace("_", "-", Config::getLanguage()) ?: "en-US", true);
 }
 catch (\MVQN\Localization\Exceptions\TranslatorException $e)

@@ -1,9 +1,7 @@
 <?php
 /** @noinspection SpellCheckingInspection */declare(strict_types=1);
 
-namespace UCRM\Plugins;
-
-use MVQN\UCRM\Plugins\SettingsBase;
+namespace MVQN\UCRM\Plugins;
 
 /**
  * @author Ryan Spaeth <rspaeth@mvqn.net>
