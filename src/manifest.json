@@ -5,7 +5,7 @@
         "displayName": "UCRM TowerCoverage Plugin",
         "description": "A simple UCRM Plugin to receive push data from TowerCoverage.com.",
         "url": "https://github.com/ucrm-plugins/towercoverage",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "ucrmVersionCompliancy": {
             "min": "2.14.0-beta4",
             "max": null
