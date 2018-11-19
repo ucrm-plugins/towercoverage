@@ -19,6 +19,7 @@ use MVQN\XML\XmlElementClass;
 final class CustomerLinkInfo extends XmlElementClass
 {
     /**
+     * @noinspection SpellCheckingInspection
      * @var string
      * @XmlElement fiberincludes
      */

@@ -5,8 +5,10 @@ require_once __DIR__."/vendor/autoload.php";
 use MVQN\Localization\Translator;
 use MVQN\REST\RestClient;
 
-use MVQN\UCRM\Plugins\Plugin;
-use UCRM\Plugins\Config;
+
+use UCRM\Common\Config;
+use UCRM\Common\Log;
+use UCRM\Common\Plugin;
 
 use UCRM\Plugins\Settings;
 
@@ -28,19 +30,23 @@ Plugin::initialize(__DIR__);
 // Regenerate the Settings class, in case anything has changed in the manifest.json file.
 Plugin::createSettings("UCRM\\Plugins");
 
-// Generate the REST API URL.
-$restUrl = (getenv("UCRM_REST_URL_DEV") ?: "http://localhost")."/api/v1.0";
+// Generate the REST API URL from either a .env file, environment variable or the Plugin Settings.
+$restUrl = rtrim(getenv("UCRM_REST_URL_DEV") ?: Settings::UCRM_PUBLIC_URL, "/")."/api/v1.0";
 
-// Configure the REST Client...
-RestClient::setBaseUrl($restUrl); //Settings::UCRM_PUBLIC_URL . "api/v1.0");
-RestClient::setHeaders([
-    "Content-Type: application/json",
-    "X-Auth-App-Key: " . Settings::PLUGIN_APP_KEY
-]);
+try
+{
+    // Configure the REST Client...
+    RestClient::setBaseUrl($restUrl);
+    RestClient::setHeaders([
+        "Content-Type: application/json",
+        "X-Auth-App-Key: " . Settings::PLUGIN_APP_KEY
+    ]);
 
-
-// Configure the language...
-//$translations = include_once __DIR__."/translations/" . (Config::getLanguage() ?: "en_US") . ".php";
+}
+catch(Exception $e)
+{
+    Log::error($e->getMessage());
+}
 
 // Set the dictionary directory and "default" locale.
 try
@@ -50,10 +56,6 @@ try
 }
 catch (\MVQN\Localization\Exceptions\TranslatorException $e)
 {
-    //$locale = Config::getLanguage();
-
-    http_response_code(500);
-    //die("The locale '$locale' is not currently supported!");
+    Log::http("The locale '".Config::getLanguage()."' is not currently supported!\n{$e->getMessage()}", 500);
     die($e->getMessage());
 }
-

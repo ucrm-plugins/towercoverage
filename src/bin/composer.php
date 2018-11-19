@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
-require __DIR__.'/vendor/autoload.php';
+require __DIR__ . "/../vendor/autoload.php";
 
-use MVQN\UCRM\Plugins\Plugin;
+use UCRM\Common\Plugin;
 
 /**
  * composer.php
@@ -21,22 +21,24 @@ if($argc === 1)
     die($usage);
 }
 
-$pluginPath = realpath(__DIR__."/../");
+$pluginPath = realpath(__DIR__ . "/../../");
 $pluginName = baseName($pluginPath);
+
+echo $pluginName."\n";
 
 // Handle the different command line arguments...
 switch ($argv[1])
 {
     // Perform initialization of the Plugin libraries and create the auto-generated Settings class.
     case "create":
-        Plugin::initialize(__DIR__);
+        Plugin::initialize(__DIR__."/../");
         Plugin::createSettings("UCRM\\Plugins");
         break;
 
     // Bundle the 'zip/' directory into a package ready for Plugin installation on the UCRM server.
     case "bundle":
-        Plugin::initialize(__DIR__);
-        Plugin::bundle(__DIR__, $pluginName, __DIR__."/.zipignore", __DIR__."/../");
+        //Plugin::initialize(__DIR__."/../");
+        Plugin::bundle(__DIR__ . "/../", $pluginName, ".zipignore", __DIR__."/../../");
         break;
 
     // TODO: More commands to come!

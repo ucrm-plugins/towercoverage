@@ -3,7 +3,7 @@ declare(strict_types=1);
 require_once __DIR__ . "/vendor/autoload.php";
 require_once __DIR__ . "/bootstrap.php";
 
-use MVQN\UCRM\Plugins\Log;
+use UCRM\Common\Log;
 
 /**
  * main.php
@@ -17,6 +17,9 @@ use MVQN\UCRM\Plugins\Log;
 (function()
 {
     // Notify the user that nothing actually happens here!
-    Log::warning("This plugin does not have any manual or scheduled functionality, ignoring!");
+    Log::warning(
+        "This plugin does not have any manual or scheduled functionality, ignoring!\n".
+        //"                             ".
+        "* To resolve this issue, set the Plugin's \"Execution period\" to \"don't execute automatically\".");
 
 })();

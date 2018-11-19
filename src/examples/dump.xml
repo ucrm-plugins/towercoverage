@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Towercoverage>
+    <CustomerDetails>
+        <apikey>12345</apikey>
+        <username>rspaeth</username>
+        <password>P@ssw0rd</password>
+        <FirstName>Ryan</FirstName>
+        <LastName>Spaeth</LastName>
+        <StreetAddress>422 Silver Star Court</StreetAddress>
+        <CustomerLat>38.9895832</CustomerLat>
+        <CustomerLong>-119.15548669999998</CustomerLong>
+        <City>Yerington</City>
+        <State>Nevada</State>
+        <Country>United States</Country>
+        <ZIP>89447</ZIP>
+        <PhoneNumber>775-463-7510</PhoneNumber>
+        <EmailAddress>rspaeth@mvqn.net</EmailAddress>
+        <HearAbout>Ubiquiti World Network</HearAbout>
+        <ContactMethod>By Phone</ContactMethod>
+        <ContactTime>Morning</ContactTime>
+        <Comment>This is a test comment</Comment>
+        <fiberincludes></fiberincludes>
+        <CustomerLinkInfo></CustomerLinkInfo>
+    </CustomerDetails>
+</Towercoverage>

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2352756d3aa79f05e7f72d7f069263d",
+    "content-hash": "9abff3b973eeb99f8320ce89a226f905",
     "packages": [
         {
             "name": "defuse/php-encryption",
@@ -251,147 +251,6 @@
             "time": "2017-03-20T17:10:46+00:00"
         },
         {
-            "name": "mvqn-ucrm/data",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mvqn-ucrm/data.git",
-                "reference": "bd7469c2cae3e7b0c77c8a5fe67d59ac6bfbf8bc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mvqn-ucrm/data/zipball/bd7469c2cae3e7b0c77c8a5fe67d59ac6bfbf8bc",
-                "reference": "bd7469c2cae3e7b0c77c8a5fe67d59ac6bfbf8bc",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "mvqn/annotations": "~1",
-                "mvqn/collections": "~1",
-                "mvqn/common": "~1",
-                "mvqn/data": "~1",
-                "mvqn/dynamics": "~1",
-                "php": "~7.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "7.2.7",
-                "vlucas/phpdotenv": "~2.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "MVQN\\": "src/MVQN/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ryan Spaeth",
-                    "email": "rspaeth@mvqn.net"
-                }
-            ],
-            "description": "A simple database library for interacting with UCRM.",
-            "time": "2018-10-28T05:54:15+00:00"
-        },
-        {
-            "name": "mvqn-ucrm/plugins",
-            "version": "1.2.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mvqn-ucrm/plugins.git",
-                "reference": "cbf2454b4b3c8902a0810bceebec20d407ebd847"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mvqn-ucrm/plugins/zipball/cbf2454b4b3c8902a0810bceebec20d407ebd847",
-                "reference": "cbf2454b4b3c8902a0810bceebec20d407ebd847",
-                "shasum": ""
-            },
-            "require": {
-                "defuse/php-encryption": "~2.2",
-                "ext-curl": "*",
-                "ext-json": "*",
-                "ext-pdo": "*",
-                "ext-zip": "*",
-                "mvqn-ucrm/data": "1.*",
-                "mvqn/data": "1.*",
-                "mvqn/dynamics": "1.*",
-                "nette/php-generator": "~3.2",
-                "php": "~7.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "7.2.7",
-                "vlucas/phpdotenv": "~2.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "MVQN\\": "src/MVQN/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ryan Spaeth",
-                    "email": "rspaeth@mvqn.net"
-                }
-            ],
-            "description": "A library of helper classes to ease UCRM Plugin development.",
-            "time": "2018-11-02T07:26:46+00:00"
-        },
-        {
-            "name": "mvqn-ucrm/rest",
-            "version": "1.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mvqn-ucrm/rest.git",
-                "reference": "7865abd9184997da701f4171f070ec26f3ebbc90"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mvqn-ucrm/rest/zipball/7865abd9184997da701f4171f070ec26f3ebbc90",
-                "reference": "7865abd9184997da701f4171f070ec26f3ebbc90",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "ext-json": "*",
-                "mvqn/annotations": "~1",
-                "mvqn/collections": "~1",
-                "mvqn/common": "~1",
-                "mvqn/rest": "~1",
-                "php": "~7.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "7.2.7",
-                "vlucas/phpdotenv": "2.5.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "MVQN\\REST\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ryan Spaeth",
-                    "email": "rspaeth@mvqn.net"
-                }
-            ],
-            "description": "A simple REST Client library for interfacing with UCRM Endpoints.",
-            "time": "2018-11-02T19:11:24+00:00"
-        },
-        {
             "name": "mvqn/annotations",
             "version": "1.2.1",
             "source": {
@@ -435,16 +294,16 @@
         },
         {
             "name": "mvqn/collections",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mvqn/collections.git",
-                "reference": "7034e3fef25453e30ab7f49ff474df9f3761da61"
+                "reference": "fb61d9d8c6c10d12e2f122e24ea501cd1aff26a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mvqn/collections/zipball/7034e3fef25453e30ab7f49ff474df9f3761da61",
-                "reference": "7034e3fef25453e30ab7f49ff474df9f3761da61",
+                "url": "https://api.github.com/repos/mvqn/collections/zipball/fb61d9d8c6c10d12e2f122e24ea501cd1aff26a7",
+                "reference": "fb61d9d8c6c10d12e2f122e24ea501cd1aff26a7",
                 "shasum": ""
             },
             "require": {
@@ -471,24 +330,27 @@
                 }
             ],
             "description": "A library for collections, specifically designed for use in MVQN projects, but generic enough for anything!",
-            "time": "2018-10-30T00:36:49+00:00"
+            "time": "2018-11-10T01:59:23+00:00"
         },
         {
             "name": "mvqn/common",
-            "version": "1.2.0",
+            "version": "1.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mvqn/common.git",
-                "reference": "7c43654135794949fb9187842e66bb017d03d0b1"
+                "reference": "b40b24298d977364d2450a2509ae0fa67e047f14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mvqn/common/zipball/7c43654135794949fb9187842e66bb017d03d0b1",
-                "reference": "7c43654135794949fb9187842e66bb017d03d0b1",
+                "url": "https://api.github.com/repos/mvqn/common/zipball/b40b24298d977364d2450a2509ae0fa67e047f14",
+                "reference": "b40b24298d977364d2450a2509ae0fa67e047f14",
                 "shasum": ""
             },
             "require": {
+                "ext-dom": "*",
                 "ext-json": "*",
+                "ext-libxml": "*",
+                "ext-mbstring": "*",
                 "php": "~7.1"
             },
             "require-dev": {
@@ -511,20 +373,20 @@
                 }
             ],
             "description": "A library of common classes and functions, specifically designed for use in MVQN projects, but generic enough for anything!",
-            "time": "2018-10-30T00:39:07+00:00"
+            "time": "2018-11-15T03:07:51+00:00"
         },
         {
             "name": "mvqn/data",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mvqn/data.git",
-                "reference": "a18cfe5ff8a5a2eb56fa6b694ecae68f8cd9804f"
+                "reference": "f4ad6d712ef27404ee724be456f4ad44d1e781f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mvqn/data/zipball/a18cfe5ff8a5a2eb56fa6b694ecae68f8cd9804f",
-                "reference": "a18cfe5ff8a5a2eb56fa6b694ecae68f8cd9804f",
+                "url": "https://api.github.com/repos/mvqn/data/zipball/f4ad6d712ef27404ee724be456f4ad44d1e781f3",
+                "reference": "f4ad6d712ef27404ee724be456f4ad44d1e781f3",
                 "shasum": ""
             },
             "require": {
@@ -558,20 +420,20 @@
                 }
             ],
             "description": "A simple database library.",
-            "time": "2018-10-29T04:41:45+00:00"
+            "time": "2018-11-10T23:17:45+00:00"
         },
         {
             "name": "mvqn/dynamics",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mvqn/dynamics.git",
-                "reference": "b0b4856e664bc05d039eefbb496aba1589fc4985"
+                "reference": "21558f03f954068bee537a6502d36a5d0605b972"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mvqn/dynamics/zipball/b0b4856e664bc05d039eefbb496aba1589fc4985",
-                "reference": "b0b4856e664bc05d039eefbb496aba1589fc4985",
+                "url": "https://api.github.com/repos/mvqn/dynamics/zipball/21558f03f954068bee537a6502d36a5d0605b972",
+                "reference": "21558f03f954068bee537a6502d36a5d0605b972",
                 "shasum": ""
             },
             "require": {
@@ -601,7 +463,7 @@
                 }
             ],
             "description": "A library for dynamic objects and methods.",
-            "time": "2018-11-07T20:23:55+00:00"
+            "time": "2018-11-07T23:44:52+00:00"
         },
         {
             "name": "mvqn/localization",
@@ -647,16 +509,16 @@
         },
         {
             "name": "mvqn/rest",
-            "version": "1.2.3",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mvqn/rest.git",
-                "reference": "71b782cafc7942500a709fbc77e9dc8ed41dce89"
+                "reference": "fa6d1d853d01e76235cec99a804f2c6e9f1e0b69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mvqn/rest/zipball/71b782cafc7942500a709fbc77e9dc8ed41dce89",
-                "reference": "71b782cafc7942500a709fbc77e9dc8ed41dce89",
+                "url": "https://api.github.com/repos/mvqn/rest/zipball/fa6d1d853d01e76235cec99a804f2c6e9f1e0b69",
+                "reference": "fa6d1d853d01e76235cec99a804f2c6e9f1e0b69",
                 "shasum": ""
             },
             "require": {
@@ -688,7 +550,7 @@
                 }
             ],
             "description": "A simple REST Client library for interfacing with generic REST Endpoints.",
-            "time": "2018-11-07T21:44:51+00:00"
+            "time": "2018-11-19T22:17:44+00:00"
         },
         {
             "name": "nette/php-generator",
@@ -931,16 +793,16 @@
         },
         {
             "name": "stichoza/google-translate-php",
-            "version": "v3.2.13",
+            "version": "v3.2.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Stichoza/google-translate-php.git",
-                "reference": "60adf747a337912d15cb85e492ac804e8e0c294f"
+                "reference": "2ad0de0c69c99cf5bb78a376b349e2fde595eec9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Stichoza/google-translate-php/zipball/60adf747a337912d15cb85e492ac804e8e0c294f",
-                "reference": "60adf747a337912d15cb85e492ac804e8e0c294f",
+                "url": "https://api.github.com/repos/Stichoza/google-translate-php/zipball/2ad0de0c69c99cf5bb78a376b349e2fde595eec9",
+                "reference": "2ad0de0c69c99cf5bb78a376b349e2fde595eec9",
                 "shasum": ""
             },
             "require": {
@@ -976,7 +838,148 @@
                 "php",
                 "translate"
             ],
-            "time": "2017-05-05T11:45:11+00:00"
+            "time": "2018-06-26T08:24:07+00:00"
+        },
+        {
+            "name": "ucrm-modules/common",
+            "version": "1.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ucrm-modules/common.git",
+                "reference": "8ade798c2f2507fe139d102b9ad516596cc23f1f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ucrm-modules/common/zipball/8ade798c2f2507fe139d102b9ad516596cc23f1f",
+                "reference": "8ade798c2f2507fe139d102b9ad516596cc23f1f",
+                "shasum": ""
+            },
+            "require": {
+                "defuse/php-encryption": "~2.2",
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-pdo": "*",
+                "ext-zip": "*",
+                "mvqn/data": "1.*",
+                "mvqn/dynamics": "1.*",
+                "nette/php-generator": "~3.2",
+                "php": "~7.1",
+                "ucrm-modules/data": "1.*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "7.2.7",
+                "vlucas/phpdotenv": "~2.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "UCRM\\": "src/UCRM/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan Spaeth",
+                    "email": "rspaeth@mvqn.net"
+                }
+            ],
+            "description": "A common set of helper classes to ease UCRM Plugin development.",
+            "time": "2018-11-19T17:56:39+00:00"
+        },
+        {
+            "name": "ucrm-modules/data",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ucrm-modules/data.git",
+                "reference": "2435f2c61d17af43589b2abd8e6b2271010b32be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ucrm-modules/data/zipball/2435f2c61d17af43589b2abd8e6b2271010b32be",
+                "reference": "2435f2c61d17af43589b2abd8e6b2271010b32be",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "mvqn/annotations": "~1",
+                "mvqn/collections": "~1",
+                "mvqn/common": "~1",
+                "mvqn/data": "~1",
+                "mvqn/dynamics": "~1",
+                "php": "~7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "7.2.7",
+                "vlucas/phpdotenv": "~2.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "UCRM\\": "src/UCRM/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan Spaeth",
+                    "email": "rspaeth@mvqn.net"
+                }
+            ],
+            "description": "A simple library for interacting with the UCRM database.",
+            "time": "2018-11-10T22:40:33+00:00"
+        },
+        {
+            "name": "ucrm-modules/rest",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ucrm-modules/rest.git",
+                "reference": "eb8dee8fe08d39734170358e06663de8ab46a973"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ucrm-modules/rest/zipball/eb8dee8fe08d39734170358e06663de8ab46a973",
+                "reference": "eb8dee8fe08d39734170358e06663de8ab46a973",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "mvqn/annotations": "~1",
+                "mvqn/collections": "~1",
+                "mvqn/common": "~1",
+                "mvqn/rest": "~1",
+                "php": "~7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "7.2.7",
+                "vlucas/phpdotenv": "2.5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "UCRM\\": "src/UCRM/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan Spaeth",
+                    "email": "rspaeth@mvqn.net"
+                }
+            ],
+            "description": "A simple REST Client library for interfacing with UCRM Endpoints.",
+            "time": "2018-11-13T05:06:18+00:00"
         }
     ],
     "packages-dev": [

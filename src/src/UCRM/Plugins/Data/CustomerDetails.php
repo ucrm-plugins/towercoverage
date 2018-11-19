@@ -29,7 +29,7 @@ use MVQN\XML\XmlElementClass;
  * @method string getHearAbout()
  * @method string getContactMethod()
  * @method string getContactTime()
- * @method array|null getComments()
+ * @method string|null getComments()
  * @method string|null getFiberIncludes()
  * @method CustomerLinkInfo getCustomerLinkInfo()
  *
@@ -139,13 +139,14 @@ final class CustomerDetails extends XmlElementClass
     protected $contactTime;
 
     /**
-     * @var array|null
+     * @var string|null
      * @XmlElement Comment
      */
     protected $comments;
 
     /**
-     * @var array|null
+     * @noinspection SpellCheckingInspection
+     * @var string|null
      * @XmlElement fiberincludes
      */
     protected $fiberIncludes;

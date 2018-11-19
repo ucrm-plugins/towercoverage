@@ -1,14 +1,15 @@
-<?php
-/** @noinspection SpellCheckingInspection */declare(strict_types=1);
+<?php /** @noinspection SpellCheckingInspection */
+declare(strict_types=1);
 
 namespace UCRM\Plugins;
 
-use MVQN\UCRM\Plugins\SettingsBase;
+use UCRM\Common\SettingsBase;
 
 /**
  * @author Ryan Spaeth <rspaeth@mvqn.net>
  *
- * @method static bool|null getVerboseDebug()
+ * @method static bool|null getDevelopment()
+ * @method static bool|null getVerboseLogging()
  * @method static string|null getApiKey()
  * @method static string|null getApiUsername()
  * @method static string|null getApiPassword()
@@ -16,6 +17,15 @@ use MVQN\UCRM\Plugins\SettingsBase;
  */
 final class Settings extends SettingsBase
 {
+	/** @const string The name of this Project, based on the root folder name. */
+	public const PROJECT_NAME = 'towercoverage';
+
+	/** @const string The absolute path to this Project's root folder. */
+	public const PROJECT_ROOT_PATH = 'C:\Users\rspaeth\Documents\PhpStorm\Projects\ucrm-plugins\towercoverage';
+
+	/** @const string The name of this Project, based on the root folder name. */
+	public const PLUGIN_NAME = 'towercoverage';
+
 	/** @const string The absolute path to the root path of this project. */
 	public const PLUGIN_ROOT_PATH = 'C:\Users\rspaeth\Documents\PhpStorm\Projects\ucrm-plugins\towercoverage\src';
 
@@ -26,16 +36,28 @@ final class Settings extends SettingsBase
 	public const PLUGIN_SOURCE_PATH = 'C:\Users\rspaeth\Documents\PhpStorm\Projects\ucrm-plugins\towercoverage\src\src';
 
 	/** @const string The publicly accessible URL of this UCRM, null if not configured in UCRM. */
-	public const UCRM_PUBLIC_URL = 'http://ucrm.dev.mvqn.net/';
+	public const UCRM_PUBLIC_URL = 'https://ucrm.dev.mvqn.net/';
+
+	/** @const string The locally accessible URL of this UCRM, null if not configured in UCRM. */
+	public const UCRM_LOCAL_URL = 'https://localhost/';
+
+	/** @const string The publicly accessible URL assigned to this Plugin by the UCRM. */
+	public const PLUGIN_PUBLIC_URL = 'https://ucrm.dev.mvqn.net/_plugins/towercoverage/public.php';
 
 	/** @const string An automatically generated UCRM API 'App Key' with read/write access. */
-	public const PLUGIN_APP_KEY = 'DrWL+nvuoqNW/TNSZ4OkXz+7YHxU3CZQjbFOo3JGS94sfVisiZi6rGWLuNYLuxh4';
+	public const PLUGIN_APP_KEY = 'NB+IWQmNgVn0T7TGR915XfrnRQF2rljdv4stp8DjP2fyWcBjiIZnDqOM//8hpAGb';
 
 	/**
-	 * Verbose Debugging?
-	 * @var bool|null If enabled, will include verbose debug messages in the Webhook Request Body.
+	 * Development?
+	 * @var bool|null If enabled, the system will force the plugin's environment to 'dev', regardless of the actual environment config.  NOTE: This should be disabled unless the plugin is not functioning correctly and debug information is needed!
 	 */
-	protected static $verboseDebug;
+	protected static $development;
+
+	/**
+	 * Verbose Logging?
+	 * @var bool|null If enabled, will include verbose debug messages in the logs.
+	 */
+	protected static $verboseLogging;
 
 	/**
 	 * API Key

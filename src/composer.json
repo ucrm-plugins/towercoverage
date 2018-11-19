@@ -17,9 +17,9 @@
 
         "mvqn/localization": "1.*",
 
-        "mvqn-ucrm/plugins": "1.*",
-        "mvqn-ucrm/rest": "1.*",
-        "mvqn-ucrm/data": "1.*"
+        "ucrm-modules/common": "1.*",
+        "ucrm-modules/rest": "1.*",
+        "ucrm-modules/data": "1.*"
     },
     "require-dev": {
         "phpunit/phpunit": "7.2.7",
@@ -37,11 +37,11 @@
     },
     "scripts": {
         "create": [
-            "@php composer.php create"
+            "@php bin/composer.php create"
         ],
         "bundle": [
             "@composer --no-interaction --verbose dump-autoload",
-            "@php composer.php bundle"
+            "@php bin/composer.php bundle"
         ]
     }
 }

@@ -39,6 +39,7 @@ final class Coverage extends XmlElementClass
     protected $customerDetailsId;
 
     /**
+     * @noinspection SpellCheckingInspection
      * @var string
      * @XmlElement Sitename
      */

@@ -1,10 +1,9 @@
 <?php
 declare(strict_types=1);
-require_once __DIR__ . "/vendor/autoload.php";
-require_once __DIR__ . "/bootstrap.php";
+require_once __DIR__ . "/../vendor/autoload.php";
+require_once __DIR__ . "/../bootstrap.php";
 
-use MVQN\UCRM\Plugins\Config;
-use MVQN\UCRM\Plugins\Settings;
+use UCRM\Common\Config;
 
 use MVQN\Localization\Translator;
 
