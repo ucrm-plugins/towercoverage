@@ -45,7 +45,7 @@ final class Settings extends SettingsBase
 	public const PLUGIN_PUBLIC_URL = 'https://ucrm.dev.mvqn.net/_plugins/towercoverage/public.php';
 
 	/** @const string An automatically generated UCRM API 'App Key' with read/write access. */
-	public const PLUGIN_APP_KEY = 'NB+IWQmNgVn0T7TGR915XfrnRQF2rljdv4stp8DjP2fyWcBjiIZnDqOM//8hpAGb';
+	public const PLUGIN_APP_KEY = 'pncIboBIV0zUy/2daKDhfI0QIoPaMa4JvR/ypuW/5+F9v5uXB8x3rwsReyAx2NSW';
 
 	/**
 	 * Development?

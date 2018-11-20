@@ -842,16 +842,16 @@
         },
         {
             "name": "ucrm-modules/common",
-            "version": "1.0.9",
+            "version": "1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ucrm-modules/common.git",
-                "reference": "8ade798c2f2507fe139d102b9ad516596cc23f1f"
+                "reference": "2ed8612780718a7e0de2bbc9bb61685985eabdbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ucrm-modules/common/zipball/8ade798c2f2507fe139d102b9ad516596cc23f1f",
-                "reference": "8ade798c2f2507fe139d102b9ad516596cc23f1f",
+                "url": "https://api.github.com/repos/ucrm-modules/common/zipball/2ed8612780718a7e0de2bbc9bb61685985eabdbb",
+                "reference": "2ed8612780718a7e0de2bbc9bb61685985eabdbb",
                 "shasum": ""
             },
             "require": {
@@ -887,7 +887,7 @@
                 }
             ],
             "description": "A common set of helper classes to ease UCRM Plugin development.",
-            "time": "2018-11-19T17:56:39+00:00"
+            "time": "2018-11-19T22:42:27+00:00"
         },
         {
             "name": "ucrm-modules/data",
@@ -937,16 +937,16 @@
         },
         {
             "name": "ucrm-modules/rest",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ucrm-modules/rest.git",
-                "reference": "eb8dee8fe08d39734170358e06663de8ab46a973"
+                "reference": "c44b31e05f18e4803b1b1473fcb173a8beb3c578"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ucrm-modules/rest/zipball/eb8dee8fe08d39734170358e06663de8ab46a973",
-                "reference": "eb8dee8fe08d39734170358e06663de8ab46a973",
+                "url": "https://api.github.com/repos/ucrm-modules/rest/zipball/c44b31e05f18e4803b1b1473fcb173a8beb3c578",
+                "reference": "c44b31e05f18e4803b1b1473fcb173a8beb3c578",
                 "shasum": ""
             },
             "require": {
@@ -979,7 +979,7 @@
                 }
             ],
             "description": "A simple REST Client library for interfacing with UCRM Endpoints.",
-            "time": "2018-11-13T05:06:18+00:00"
+            "time": "2018-11-19T23:13:02+00:00"
         }
     ],
     "packages-dev": [

@@ -16,6 +16,10 @@ use UCRM\REST\Endpoints\ClientContact;
 use UCRM\REST\Endpoints\ClientLog;
 use UCRM\REST\Endpoints\Country;
 use UCRM\REST\Endpoints\State;
+use UCRM\REST\Endpoints\Ticket;
+use UCRM\REST\Endpoints\TicketComment;
+use UCRM\REST\Endpoints\TicketCommentAttachment;
+
 
 /**
  * public.php
@@ -91,9 +95,14 @@ use UCRM\REST\Endpoints\State;
         // IF the Plugin is in Development mode, THEN dump the XML data to a file for later inspection!
         if(Settings::getDevelopment())
         {
-            $file = __DIR__ . "/data/dumps/" . (new DateTimeImmutable())->format("Y-m-d_His.u") . ".xml";
-            file_put_contents($file, $dataRaw);
-            Log::debug("TowerCoverage XML data has been dumped to file '$file', due to being in Development mode.");
+            $dumpPath = __DIR__ . "/data/dumps/";
+
+            if(!file_exists($dumpPath))
+                mkdir($dumpPath, 0775, true);
+
+            $dumpFile = $dumpPath . (new DateTimeImmutable())->format("Y-m-d_His.u") . ".xml";
+            file_put_contents($dumpFile, $dataRaw);
+            Log::debug("TowerCoverage XML data has been dumped to file '$dumpFile', due to being in Development mode.");
         }
 
         // -------------------------------------------------------------------------------------------------------------
@@ -229,6 +238,137 @@ use UCRM\REST\Endpoints\State;
         // Create a new Client Log entry and set it's timestamp to NOW.
         $log = new ClientLog([ "clientId" => $upsertedClient->getId() ]);
         $log->setCreatedDate(new DateTime());
+
+        // -------------------------------------------------------------------------------------------------------------
+        // TICKET HANDLING
+        // -------------------------------------------------------------------------------------------------------------
+
+        $attachments = [];
+
+        $customerLinkInfo = $customerDetails->getCustomerLinkInfo();
+
+        foreach($customerLinkInfo->getCoverages() as $coverage)
+        {
+            $siteName = $coverage->getSiteName();
+            $imageData = $coverage->getImageData();
+
+            /*
+            if(preg_match("~^data:image/(\w+);base64, (.+)$~", $imageData, $matches))
+            {
+                $extension = $matches[1];
+                $data = base64_decode($matches[2]);
+
+                $file = tempnam($tempPath, "attachment").".$extension";
+
+                file_put_contents($file, $data);
+                $filesAdded[] = $file;
+
+                $comments[] = new TicketComment(
+                    [
+                        "filename" => $file,
+                    ]
+                );
+            }
+            */
+
+            $attachments[$siteName] = $imageData;
+
+        }
+
+
+
+
+
+        $ticket = null;
+
+        // IF the Client Lead already existed...
+        if ($clientExists)
+        {
+            $tickets = Ticket::getByClientId($upsertedClient->getId());
+
+            foreach($tickets as $t)
+            {
+
+                if($t->getSubject() === "TowerCoverage EUS Submission")
+                {
+                    $ticket = $t;
+                    break;
+                }
+            }
+        }
+
+        $ticketExists = ($ticket !== null);
+
+
+        $ticket = $ticketExists ? $ticket : new Ticket(
+            [
+                "subject" => "TowerCoverage EUS Submission",
+                "clientId" => $upsertedClient->getId(),
+                "createdAt" => new DateTime(),
+                "status" => Ticket::STATUS_NEW,
+                "public" => false,
+                "activity" => new \UCRM\REST\Endpoints\TicketActivity(
+                    [
+                        "createdAt" => new DateTime(),
+                        "public" => false,
+                        "comment" => new TicketComment(
+                            [
+                                "body" => "A new TowerCoverage End-User Submission has been received."
+                            ]
+                        )
+                    ]
+                ),
+            ]
+        );
+
+
+        foreach($attachments as $name => $data)
+        {
+            $ticket->addActivity(new \UCRM\REST\Endpoints\TicketActivity(
+                [
+                    "createdAt" => new DateTime(),
+                    "public" => false,
+                    "filename" => $name,
+                    "file" => $data,
+                ])
+            );
+
+        }
+
+        //var_dump($ticket->getActivity());
+
+
+
+        /*
+
+
+        $upsertedTicket = $ticketExists ? $ticket : $ticket->insert();
+
+
+
+
+        $upload = new TicketComment(
+            [
+                "ticketId" => $upsertedTicket->getId(),
+                "public" => false,
+                "createdAt" => new DateTime(),
+            ]
+        );
+
+        */
+
+
+
+
+        // -------------------------------------------------------------------------------------------------------------
+        // JOB HANDLING
+        // -------------------------------------------------------------------------------------------------------------
+
+
+
+        // -------------------------------------------------------------------------------------------------------------
+        // CLIENT LOG MESSAGES
+        // -------------------------------------------------------------------------------------------------------------
 
         // IF the Client Lead already existed...
         if ($clientExists)
