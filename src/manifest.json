@@ -15,7 +15,7 @@
     "menu": [
         {
             "key": "Add-Ons",
-            "label": "TowerCoverage.com",
+            "label": "TowerCoverage EUS",
             "type": "admin",
             "target": "iframe"
         }
