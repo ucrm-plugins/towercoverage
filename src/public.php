@@ -11,6 +11,8 @@ use UCRM\Plugins\Settings;
 
 use UCRM\Plugins\Data\TowerCoverage;
 
+use MVQN\Collections\Collection;
+
 use UCRM\REST\Endpoints\Client;
 use UCRM\REST\Endpoints\ClientContact;
 use UCRM\REST\Endpoints\ClientLog;
@@ -19,6 +21,7 @@ use UCRM\REST\Endpoints\State;
 use UCRM\REST\Endpoints\Ticket;
 use UCRM\REST\Endpoints\TicketComment;
 use UCRM\REST\Endpoints\TicketCommentAttachment;
+use UCRM\REST\Endpoints\TicketActivity;
 
 
 /**
@@ -42,9 +45,8 @@ use UCRM\REST\Endpoints\TicketCommentAttachment;
     // IF no payload has been received...
     if(!$dataRaw)
     {
-        Log::http("This Add-On currently has no additional configuration!", 200);
+        //Log::http("This Add-On currently has no additional configuration!", 200);
 
-        /*
         // ...AND the Plugin is in Development mode...
         if(Settings::getDevelopment())
         {
@@ -57,7 +59,7 @@ use UCRM\REST\Endpoints\TicketCommentAttachment;
             // OTHERWISE, return an HTTP 400 - Bad Request!
             Log::http("No TowerCoverage data was received!", 400);
         }
-        */
+
     }
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -256,27 +258,14 @@ use UCRM\REST\Endpoints\TicketCommentAttachment;
             $siteName = $coverage->getSiteName();
             $imageData = $coverage->getImageData();
 
-            /*
+
             if(preg_match("~^data:image/(\w+);base64, (.+)$~", $imageData, $matches))
             {
-                $extension = $matches[1];
-                $data = base64_decode($matches[2]);
+                //$extension = $matches[1];
+                //$data = base64_decode($matches[2]);
 
-                $file = tempnam($tempPath, "attachment").".$extension";
-
-                file_put_contents($file, $data);
-                $filesAdded[] = $file;
-
-                $comments[] = new TicketComment(
-                    [
-                        "filename" => $file,
-                    ]
-                );
+                $attachments[$siteName] = $matches[2];
             }
-            */
-
-            $attachments[$siteName] = $imageData;
-
         }
 
 
@@ -290,9 +279,8 @@ use UCRM\REST\Endpoints\TicketCommentAttachment;
         {
             $tickets = Ticket::getByClientId($upsertedClient->getId());
 
-            foreach($tickets as $t)
+            foreach($tickets as /** @var Ticket $t */ $t)
             {
-
                 if($t->getSubject() === "TowerCoverage EUS Submission")
                 {
                     $ticket = $t;
@@ -303,7 +291,6 @@ use UCRM\REST\Endpoints\TicketCommentAttachment;
 
         $ticketExists = ($ticket !== null);
 
-
         $ticket = $ticketExists ? $ticket : new Ticket(
             [
                 "subject" => "TowerCoverage EUS Submission",
@@ -311,55 +298,30 @@ use UCRM\REST\Endpoints\TicketCommentAttachment;
                 "createdAt" => new DateTime(),
                 "status" => Ticket::STATUS_NEW,
                 "public" => false,
-                "activity" => new \UCRM\REST\Endpoints\TicketActivity(
-                    [
-                        "createdAt" => new DateTime(),
-                        "public" => false,
-                        "comment" => new TicketComment(
-                            [
-                                "body" => "A new TowerCoverage End-User Submission has been received."
-                            ]
-                        )
-                    ]
-                ),
-            ]
-        );
+            ]);
 
-
-        foreach($attachments as $name => $data)
+        if(!$ticketExists)
         {
-            $ticket->addActivity(new \UCRM\REST\Endpoints\TicketActivity(
-                [
-                    "createdAt" => new DateTime(),
-                    "public" => false,
-                    "filename" => $name,
-                    "file" => $data,
-                ])
-            );
+            $comment = new TicketComment();
+            $comment
+                ->setBody("A new TowerCoverage End-User Submission has been received.");
 
+            $activity = new TicketActivity();
+            $activity
+                ->setCreatedAt(new DateTime())
+                ->setPublic(false)
+                ->setComment($comment);
+
+            $ticket->setActivity([ $activity ]);
+
+            $ticket = $ticket->insert();
+        }
+        else
+        {
+            $ticket->addComment("A duplicate or updated submission from TowerCoverage End-User Submission has been received.", true);
         }
 
-        //var_dump($ticket->getActivity());
-
-
-
-        /*
-
-
-        $upsertedTicket = $ticketExists ? $ticket : $ticket->insert();
-
-
-
-
-        $upload = new TicketComment(
-            [
-                "ticketId" => $upsertedTicket->getId(),
-                "public" => false,
-                "createdAt" => new DateTime(),
-            ]
-        );
-
-        */
+        $ticket->addMimeAttachments($attachments);
 
 
 
