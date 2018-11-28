@@ -424,16 +424,16 @@
         },
         {
             "name": "mvqn/dynamics",
-            "version": "1.2.3",
+            "version": "1.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mvqn/dynamics.git",
-                "reference": "21558f03f954068bee537a6502d36a5d0605b972"
+                "reference": "eeb4a03faf93b5589660b02eb4704f1ed3b11176"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mvqn/dynamics/zipball/21558f03f954068bee537a6502d36a5d0605b972",
-                "reference": "21558f03f954068bee537a6502d36a5d0605b972",
+                "url": "https://api.github.com/repos/mvqn/dynamics/zipball/eeb4a03faf93b5589660b02eb4704f1ed3b11176",
+                "reference": "eeb4a03faf93b5589660b02eb4704f1ed3b11176",
                 "shasum": ""
             },
             "require": {
@@ -463,7 +463,7 @@
                 }
             ],
             "description": "A library for dynamic objects and methods.",
-            "time": "2018-11-07T23:44:52+00:00"
+            "time": "2018-11-24T19:51:32+00:00"
         },
         {
             "name": "mvqn/localization",
@@ -842,16 +842,16 @@
         },
         {
             "name": "ucrm-modules/common",
-            "version": "1.0.10",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ucrm-modules/common.git",
-                "reference": "2ed8612780718a7e0de2bbc9bb61685985eabdbb"
+                "reference": "f22f3c528a002d56b897eae8a878ae70db01d904"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ucrm-modules/common/zipball/2ed8612780718a7e0de2bbc9bb61685985eabdbb",
-                "reference": "2ed8612780718a7e0de2bbc9bb61685985eabdbb",
+                "url": "https://api.github.com/repos/ucrm-modules/common/zipball/f22f3c528a002d56b897eae8a878ae70db01d904",
+                "reference": "f22f3c528a002d56b897eae8a878ae70db01d904",
                 "shasum": ""
             },
             "require": {
@@ -862,6 +862,7 @@
                 "ext-zip": "*",
                 "mvqn/data": "1.*",
                 "mvqn/dynamics": "1.*",
+                "mvqn/rest": "1.*",
                 "nette/php-generator": "~3.2",
                 "php": "~7.1",
                 "ucrm-modules/data": "1.*"
@@ -886,8 +887,8 @@
                     "email": "rspaeth@mvqn.net"
                 }
             ],
-            "description": "A common set of helper classes to ease UCRM Plugin development.",
-            "time": "2018-11-19T22:42:27+00:00"
+            "description": "A common set of classes to ease UCRM Plugin development.",
+            "time": "2018-11-24T04:48:55+00:00"
         },
         {
             "name": "ucrm-modules/data",
@@ -937,16 +938,16 @@
         },
         {
             "name": "ucrm-modules/rest",
-            "version": "1.0.5",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ucrm-modules/rest.git",
-                "reference": "c44b31e05f18e4803b1b1473fcb173a8beb3c578"
+                "reference": "ffce59ef2b9eb4746192d72139205b68f1a38bf3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ucrm-modules/rest/zipball/c44b31e05f18e4803b1b1473fcb173a8beb3c578",
-                "reference": "c44b31e05f18e4803b1b1473fcb173a8beb3c578",
+                "url": "https://api.github.com/repos/ucrm-modules/rest/zipball/ffce59ef2b9eb4746192d72139205b68f1a38bf3",
+                "reference": "ffce59ef2b9eb4746192d72139205b68f1a38bf3",
                 "shasum": ""
             },
             "require": {
@@ -979,7 +980,7 @@
                 }
             ],
             "description": "A simple REST Client library for interfacing with UCRM Endpoints.",
-            "time": "2018-11-19T23:13:02+00:00"
+            "time": "2018-11-23T23:38:51+00:00"
         }
     ],
     "packages-dev": [

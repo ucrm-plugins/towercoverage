@@ -32,7 +32,7 @@ Plugin::createSettings("UCRM\\Plugins");
 
 // Generate the REST API URL from either a .env file, environment variable or the Plugin Settings.
 //$restUrl = rtrim(getenv("UCRM_REST_URL_DEV") ?: Settings::UCRM_PUBLIC_URL, "/")."/api/v1.0";
-$restUrl = rtrim(getenv("UCRM_REST_URL_DEV") ?: "http://localhost/", "/")."/api/v1.0";
+$restUrl = rtrim(getenv("UCRM_REST_URL_DEV") ?: Settings::UCRM_LOCAL_URL, "/")."/api/v1.0";
 
 if(Settings::getDevelopment())
 {

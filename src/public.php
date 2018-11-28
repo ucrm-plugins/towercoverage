@@ -42,6 +42,9 @@ use UCRM\REST\Endpoints\TicketCommentAttachment;
     // IF no payload has been received...
     if(!$dataRaw)
     {
+        Log::http("This Add-On currently has no additional configuration!", 200);
+
+        /*
         // ...AND the Plugin is in Development mode...
         if(Settings::getDevelopment())
         {
@@ -54,6 +57,7 @@ use UCRM\REST\Endpoints\TicketCommentAttachment;
             // OTHERWISE, return an HTTP 400 - Bad Request!
             Log::http("No TowerCoverage data was received!", 400);
         }
+        */
     }
 
     // -----------------------------------------------------------------------------------------------------------------
