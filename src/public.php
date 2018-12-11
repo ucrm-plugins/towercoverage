@@ -264,7 +264,8 @@ use UCRM\REST\Endpoints\TicketActivity;
                 //$extension = $matches[1];
                 //$data = base64_decode($matches[2]);
 
-                $attachments[$siteName] = $matches[2];
+                $type = $matches[1];
+                $attachments[$siteName.".".$type] = $matches[2];
             }
         }
 
